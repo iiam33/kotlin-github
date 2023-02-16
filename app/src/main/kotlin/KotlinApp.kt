@@ -40,7 +40,7 @@ data class User (
 
 class KotlinApp {
     var url: URL = URL("https://api.github.com/repos/freeCodeCamp/freeCodeCamp/contributors")
-    var token: String = " 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"
+    var token: String = " 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"
 
     public fun get() {
         var url: URL = this.url
@@ -63,7 +63,7 @@ class KotlinApp {
                 println(user.contributions);
             }
 
-            
+
             
         } else {
             println("GET request failed")
