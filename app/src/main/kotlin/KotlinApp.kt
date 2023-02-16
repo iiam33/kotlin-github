@@ -40,7 +40,7 @@ data class User (
 
 class KotlinApp {
     var url: URL = URL("https://api.github.com/repos/freeCodeCamp/freeCodeCamp/contributors")
-    var token: String = " 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"
+    var token: String = " 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"
 
     public fun get() {
         var url: URL = this.url
