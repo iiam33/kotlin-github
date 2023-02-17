@@ -79,7 +79,7 @@ class KotlinApp {
         var url: URL = URL("https://api.github.com/repos/freeCodeCamp/freeCodeCamp/contributors")
         val conn: HttpURLConnection = url.openConnection() as HttpURLConnection
 
-        conn.setRequestProperty("Authorization","Bearer "+ " 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")
+        conn.setRequestProperty("Authorization","Bearer "+ " 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")
         conn.setRequestMethod("GET")
 
         val responseCode: Int = conn.responseCode
@@ -94,6 +94,7 @@ class KotlinApp {
             for (contributor in sortedListSortedMutableList) {
                 var userUrl: URL = URL("https://api.github.com/users/" + contributor.login)
                 val userConn: HttpURLConnection = userUrl.openConnection() as HttpURLConnection
+                userConn.setRequestProperty("Authorization","Bearer "+ " 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")
                 userConn.setRequestMethod("GET")
                 val userResponseCode: Int = conn.responseCode
 
