@@ -1,0 +1,44 @@
+import okhttp3.*
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.MockWebServer
+import org.junit.After
+import org.junit.Before
+import org.junit.Test
+import java.io.IOException
+
+class HttpTest {
+    private lateinit var server: MockWebServer
+    private lateinit var client: OkHttpClient
+
+    @Before
+    @Throws(IOException::class)
+    fun setup() {
+        server = MockWebServer()
+        server.start()
+
+        client = OkHttpClient.Builder()
+            .build()
+    }
+
+    @After
+    @Throws(IOException::class)
+    fun teardown() {
+        server.shutdown()
+    }
+
+    @Test
+    @Throws(IOException::class)
+    fun testGet() {
+        val expectedResponse = """{"username": "Alvin"}""".trimIndent()
+
+        server.enqueue(MockResponse().setBody(expectedResponse))
+
+        val request = Request.Builder()
+            .url(server.url("/"))
+            .build()
+
+        val response = client.newCall(request).execute()
+
+        assertEquals(expectedResponse, response.body?.string())
+    }
+}

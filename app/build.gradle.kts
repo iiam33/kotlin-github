@@ -25,11 +25,12 @@ dependencies {
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")
     implementation("com.google.code.gson:gson:2.8.5")
-    testImplementation(kotlin("test")) 
+    testImplementation(kotlin("test"))
+    testImplementation("com.squareup.okhttp3:okhttp:4.9.0") 
 }
 
 kotlin { // Extension for easy setup
-   jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
+   jvmToolchain(8) 
 }
 
 application {

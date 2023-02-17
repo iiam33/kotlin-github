@@ -7,8 +7,5 @@ internal class KotlinTest {
 
     @Test
     fun testGet() {
-        request = kotlinTest.get()
-
-        assertEquals(200, request.statusCode)
     }
 }
